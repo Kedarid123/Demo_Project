@@ -1,0 +1,52 @@
+<h3 style="text-align: center; color:red"><u> Angular Pipes </u></h3>
+
+<h3>String Pipes</h3>
+
+<p>To Uppercase: {{sString | uppercase}}</p>  
+
+<p>To Lowercase: {{sString| lowercase}}</p>
+
+<p>To Sentencese: {{sString | titlecase}}</p> <br>
+
+
+<h3>Date Pipes</h3>
+
+<p>Standard Date Format: {{newDate | date}}</p>            
+
+<p>Short Date Format: {{newDate | date : 'short'}}</p>     
+
+<p>Long Date Format: {{newDate | date : 'long'}}</p>        
+
+<p>Own Date Format: {{newDate | date : 'dd/MM/yyyy'}}</p>  
+
+<p>Own Date Format: {{newDate | date : 'dd MMMM yyyy'}}</p>    
+
+<p>Own Date Format: {{newDate | date : 'E, dd-MMM-yy'}}</p> <br>
+
+
+<h3>JSON Pipe</h3>
+
+<p>{{StudData | json}}</p> 
+
+<p>{{StudData1 | json}}</p> <br>
+
+
+<h3>Slice Pipe</h3>
+
+<p>Original String : {{sString}}</p>
+
+<p>Slice String1 : {{sString | slice : 3}}</p>
+
+<p>Slice String2 : {{sString | slice : 3 : 7 }}</p> <br>
+
+<h3>Currency Pipe</h3>
+
+<p>Original amount : {{amount}}</p>
+
+<p>Currency Pipe : {{amount | currency : 'INR'}}</p>
+
+<p>Currency Pipe : {{amount | currency : 'EUR'}}</p>
+
+<p>Currency Pipe : {{amount | currency : 'USD'}}</p>
+
+<p>Currency Pipe : {{amount | currency : 'JPY'}}</p>

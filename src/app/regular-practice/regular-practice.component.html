@@ -1,0 +1,71 @@
+<h3 style="text-align: center;">Directives</h3>
+
+<h5>Structural Directives</h5>
+
+<!-- ngIf -->
+
+<p *ngIf="!showData">{{myName}}</p>
+<p *ngIf="!showData">{{myString}}</p>
+
+
+<!-- ngFor -->
+<select>
+    <option *ngFor="let cities of City">{{cities}}</option>
+</select>
+
+<table class="table table-responsive">
+   <tr>
+    <th *ngFor="let cities of City">{{cities}}</th>
+   </tr>
+   <tr>
+    <td *ngFor="let sf of shortForm">{{sf}}</td>
+</tr>
+</table>
+
+
+<!-- ngSwitch -->
+<div [ngSwitch]="State">
+    <div *ngSwitchCase="'MH'">{{"Maharashtra"}}</div>
+    <div *ngSwitchCase="'PB'">{{"Punjab"}}</div>
+    <div *ngSwitchCase="'BR'">{{"Bihar"}}</div>
+    <div *ngSwitchCase="'AP'">{{"Andhra Pradesh"}}</div>
+    <div *ngSwitchDefault="">{{"None of The Above"}}</div>
+</div>
+<br>
+
+
+<h5>Attribute Binding</h5>
+
+1. ngClass
+
+<p [ngClass] = "test1">NGCLass</p>
+
+<p [ngClass]="age>18 && !showFlag ? 'test1' : 'test2'">NGClasssss</p>
+
+2. ngStyle
+
+
+<h3 style="text-align: center;">Data Binding</h3>
+<!-- interpolation binding -->
+
+1. string binding <br> 
+My name is {{myName}} <br><br>
+
+<!-- attribute binding  -->
+2. Attribute binding <br> 
+<a [href]="link">Click Here</a> <br><br>
+
+<!-- Two Way Binding -->
+3. Two way binding <br>
+<input type="text" name="fname" placeholder="Enter Your Full Name" [(ngModel)]="FullName">
+My Full Name is : {{FullName}} <br> <br>
+
+<!-- Event Binding -->
+4. Event Binding <br>
+<button (click)="eventClick()">Submit</button>
+
+
+<h3 style="text-align: center;">Pipes</h3>
+
+
+

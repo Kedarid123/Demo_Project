@@ -1,0 +1,15 @@
+.test1{
+    color:red; background-color: yellow;
+}
+
+.test2{
+    color:yellow; background-color: red;
+}
+
+.testClass{
+    color: red;
+}
+
+.testStyle{
+    color: pink; background-color: black;
+}

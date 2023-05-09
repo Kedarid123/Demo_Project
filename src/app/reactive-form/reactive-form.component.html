@@ -1,0 +1,94 @@
+<h3 style="color:red; background-color: black; text-align: center; height: 50px;" >Reactive Form</h3>
+
+<section style="margin-left: 40px; margin-right: 40px; background-color:cornsilk;">
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmitData()">
+<div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input type="text" name="fname" class="form-control" formControlName="fname"
+    required [ngClass]="{'is-invalid': isFormSubmitted && f.fname.errors}">
+
+    <div *ngIf="isFormSubmitted && f.fname.errors?.required" class="invalid-feedback">
+        First Name is Required
+    </div> 
+    <div *ngIf="isFormSubmitted && f.fname.errors?.pattern" class="invalid-feedback">
+        Please Enter Valid First Name
+    </div> 
+</div> <br>
+
+
+<div class="form-group">
+    <label for="lastName"> Last Name:</label>
+    <input type="text" name="lname" class="form-control" formControlName="lname"
+    required [ngClass]="{'is-invalid': isFormSubmitted && f.lname.errors}">
+ 
+
+<div *ngIf="isFormSubmitted && f.lname.errors?.required" class="invalid-feedback">
+        Last Name is Required
+</div> 
+<div *ngIf="isFormSubmitted && f.lname.errors?.pattern" class="invalid-feedback">
+    Please Enter Valid Last Name
+</div> 
+</div><br>
+
+
+<div class="form-group">
+    <label for="email"> Email:</label>
+    <input type="email" name="eml" class="form-control" formControlName="email"
+    required [ngClass]="{'is-invalid': isFormSubmitted && f.email.errors}">
+   
+    <div *ngIf="isFormSubmitted && f.email.errors?.required" class="invalid-feedback">
+        Email is Required
+    </div>
+    <div *ngIf="isFormSubmitted && f.email.errors?.pattern" class="invalid-feedback">
+        Please Enter Valid Email ID
+    </div>   
+</div>
+<br>
+
+<div class="form-group">
+    <label for="stream">Stream:</label>
+    <select name="stream" id="" class="form-control" formControlName="stream">
+        <option *ngFor="let stream of streams">{{stream}}</option>
+    </select>
+</div> <br>
+
+<div class="form-group">
+    <label for="gender">Gender :</label>
+    <input type="radio" name="gender" class=" radio" value="male" formControlName="gender">
+    <label for="male"> Male</label>
+    <input type="radio" name="gender" class=" radio" value="female" formControlName="gender">
+    <label for="female"> Female</label>
+</div> <br>
+
+<div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" name="pass" class="form-control" formControlName="pass"
+    required [ngClass]="{'is-invalid': isFormSubmitted && f.pass.errors}">
+
+    <div *ngIf="isFormSubmitted && f.pass.errors?.required" class="invalid-feedback">
+        Password is Required
+</div> 
+    <div *ngIf="isFormSubmitted && f.pass.errors?.pattern" class="invalid-feedback">
+        Password must contain Alphabate, Number and Symbols
+    </div>   
+</div> <br>
+
+<div class="form-group">
+    <label for="cpassword">Confirm Password:</label>
+    <input type="password" name="cpass" class="form-control" formControlName="cpass"
+    required [ngClass]="{'is-invalid': isFormSubmitted && f.cpass.errors}">
+    <div *ngIf="isFormSubmitted && f.cpass.errors?.required" class="invalid-feedback">
+       Confirm Password is Required
+</div> 
+    <div *ngIf="isFormSubmitted && f.cpass.errors?.pattern" class="invalid-feedback">
+        Password must contain Alphabate, Number and Symbols
+    </div>   
+</div> <br>
+
+<div class="form-group">
+    <button type="submit" class="btn btn-info">Submit</button>
+</div>
+
+</form>
+</section>

@@ -1,0 +1,181 @@
+<!-- <h3>Template Driven Form</h3>
+
+<form name="myForm" #frm="ngForm" (ngSubmit)="onSubmitData(frm)">
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="fname" class="form-control" #fname="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lname" class="form-control" #lname="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="contNo">Contact No.:</label>
+        <input type="number" name="contact" class="form-control" #contact="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="stream">Stream:</label>
+        <select name="stream" id="" class="form-control" #stream="ngModel" ngModel>
+            <option>Agriculture Business Management</option>
+            <option>Agriculture </option>
+            <option>Horticulture</option>
+            <option>B. Tech. Agriculture </option>
+            <option>Food Tech.</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" class=" radio" value="Male" #gender="ngModel" ngModel>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" class=" radio" value="Female" #gender="ngModel" ngModel>
+        <label for="female">Female</label>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="pass" class="form-control" #pass="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+        <label for="cpassword">Confirm Password:</label>
+        <input type="password" name="cpass" class="form-control" #cpass="ngModel" ngModel>
+    </div> <br>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Submit</button>
+     
+    </div>
+
+</form>
+
+
+<div *ngIf="showFlag">
+<table class="table table-primary">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact No.</th>
+        <th>Stream</th>
+        <th>Gender</th>
+        <th>Password</th>
+        <th>Confirm Password</th>
+    </tr>
+    <tr *ngFor="let dt of allData">
+        <td>{{dt.fname}}</td>
+        <td>{{dt.lname}}</td>
+        <td>{{dt.contact}}</td>
+        <td>{{dt.stream}}</td>
+        <td>{{dt.gender}}</td>
+        <td>{{dt.pass}}</td>
+        <td>{{dt.cpass}}</td>
+
+    </tr>
+</table>
+
+</div> -->
+
+
+
+
+
+<form name="myForm" #frm="ngForm" (ngSubmit)="onSubmitData(frm)">
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="fname" class="form-control" #fname="ngModel" ngModel
+        required [ngClass]="{'is-invalid':frm.submitted && fname.invalid}">
+        <div *ngIf="frm.submitted && fname.invalid" class="invalid-feedback">
+            First Name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lname" class="form-control" #lname="ngModel" ngModel
+        required [ngClass]="{'is-invalid':frm.submitted && lname.invalid}">
+        
+        <div *ngIf="frm.submitted && lname.invalid" class="invalid-feedback">
+            Last Name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contNo">Contact No.:</label>
+        <input type="number" name="contact" class="form-control" #contact="ngModel" ngModel
+        required [ngClass]="{'is-invalid':frm.submitted && contact.invalid}"
+        pattern="/^-?(0|[1-9]\d*)?$/">
+    </div>
+
+    <div class="form-group">
+        <label for="stream">Stream:</label>
+        <select name="stream" id="" class="form-control" #stream="ngModel" ngModel>
+            <option>Agriculture Business Management</option>
+            <option>Agriculture </option>
+            <option>Horticulture</option>
+            <option>B. Tech. Agriculture </option>
+            <option>Food Tech.</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" class=" radio" value="Male" #gender="ngModel" ngModel>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" class=" radio" value="Female" #gender="ngModel" ngModel>
+        <label for="female">Female</label>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="pass" class="form-control" #pass="ngModel" ngModel
+        required [ngClass]="{'is-invalid':frm.submitted && contact.invalid}"
+        pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/">
+    </div>
+
+
+    <div class="form-group">
+        <label for="cpassword">Confirm Password:</label>
+        <input type="password" name="cpass" class="form-control" #cpass="ngModel" ngModel
+        required [ngClass]="{'is-invalid':frm.submitted && contact.invalid}"
+        pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-])[A-Za-z\d$@('@')$!%*#?&{}[\]<>()^+=;:'&quot;/\\|-]{8,20}$/">
+    </div> <br>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Submit</button>
+    </div>
+
+</form>
+
+
+
+<div *ngIf="showFlag">
+    <table class="table table-primary">
+        <tr>
+            <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact No.</th>
+        <th>Stream</th>
+        <th>Gender</th>
+        <th>Password</th>
+        <th>Confirm Password</th>
+            <th> Action</th>
+        </tr>
+        <tr *ngFor="let dt of allData">
+            <td>{{dt.fname}}</td>
+        <td>{{dt.lname}}</td>
+        <td>{{dt.contact}}</td>
+        <td>{{dt.stream}}</td>
+        <td>{{dt.gender}}</td>
+        <td>{{dt.pass}}</td>
+        <td>{{dt.cpass}}</td>
+            <td>
+                <button (click)="onDel">Delete</button>
+            </td>
+    
+        </tr>
+    </table>
+    
+    </div>

@@ -1,0 +1,63 @@
+<h3> Structural Directives</h3>
+
+<!-- 1. *ngIf -->
+
+<!-- <h6 *ngIf="showText">{{text}}</h6> -->
+<!-- if showText is true then only will render -->
+
+<!-- <h6 *ngIf="!showText && age<18">{{text}}</h6> -->
+<!-- if showText is false and age is < 18 then only will render -->
+
+<!-- <h6 *ngIf="!showText && age != 18"> {{text}}</h6> -->
+<!-- if showText is false and age is not equal to 18 then only will render -->
+
+
+<!-- 2. *ngFor -->
+<!-- for using *ngFor we need to import FormsModule in app.module.ts -->
+
+<select class="form-control">
+    <option *ngFor="let state of states">{{state}}</option>
+</select>
+
+<table class="table table-responsive">
+    <tr>
+        <th *ngFor="let state of states">{{state}}</th>
+    </tr>
+    <tr>
+        <td *ngFor="let ct of city">{{ct}}</td>
+    </tr>
+    <tr>
+        <td *ngFor="let lang of language">{{lang}}</td>
+    </tr>
+</table>
+
+<!-- ngSwitch -->
+<!-- it workd similarly as switch case in JS -->
+
+
+<div [ngSwitch]="state">
+    <p *ngSwitchCase="'MH'">Maharashtra</p>
+    <p *ngSwitchCase="'MP'">Madhya Pradesh</p>
+    <p *ngSwitchCase="'GJ'">Gujarat</p>
+    <p *ngSwitchDefault="">None of The Above</p>
+     
+</div>
+
+
+<!-- Attribute Directives -->
+
+<h4>2. Attribute Directives </h4>
+<!-- 1. ngClass -->
+
+<p class="testClass"> This is normal class with paragraph</p>
+
+<p [ngClass]="testClass1">This is pararaph with ngClass </p>
+
+<p [ngClass]="(showText && age>25) ? 'test1': 'test2'">This is pararaph with ngClass and ternary operator</p>
+
+
+
+<!-- 2. ngStyle -->
+
+<p style="color: pink"> This is ngStyle normally</p>
+
